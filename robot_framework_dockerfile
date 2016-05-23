@@ -1,0 +1,59 @@
+#Copyright 2016 Symbio
+#sakari.hoisko@symbio.com
+#
+#Licensed under the Apache License, Version 2.0 (the "License");
+#you may not use this file except in compliance with the License.
+#You may obtain a copy of the License at
+#
+#http://www.apache.org/licenses/LICENSE-2.0
+#
+#Unless required by applicable law or agreed to in writing, software
+#distributed under the License is distributed on an "AS IS" BASIS,
+#WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#See the License for the specific language governing permissions and
+#limitations under the License.
+
+FROM debian
+
+#RIDE installation require python-wxgtk2.8 some could be installed from wheezy repo
+RUN echo "deb http://ftp.seclan.com/debian/ wheezy main" >> /etc/apt/sources.list && \
+    echo "deb-src http://ftp.seclan.com/debian/ wheezy main" >> /etc/apt/sources.list
+
+#APT repos update
+RUN apt-get update
+
+#SSH server installation and X11 forwarding possible:
+RUN apt-get install -y --no-install-recommends openssh-server xauth
+EXPOSE 22
+#openssh-server require folder /var/run/sshd
+RUN mkdir -pv /var/run/sshd
+
+# Java installation so cointainer could work as Jenkins slave: https://wiki.jenkins-ci.org/display/JENKINS/Docker+Plugin
+RUN apt-get install -y --no-install-recommends openjdk-7-jre
+
+#SSH server user: 
+RUN useradd -m -d /home/sshuser -s /bin/bash -U sshuser
+RUN echo 'sshuser:sshuserpw' | chpasswd
+# NOTE: <In future development user should be added in runtime as script> 
+#       ...same way than in docker-entrypoint.sh do in https://hub.docker.com/_/postgres/ 
+#       ...also run time added keybased auth should be supported
+
+#Python installation:
+RUN apt-get install -y --no-install-recommends python2.7
+#Python pip installation:
+RUN apt-get install -y --no-install-recommends python-pip
+
+##Robot framework installation:
+RUN pip install robotframework
+
+##Ride installation:
+#Require python-wxgtk2.8
+RUN apt-get install -y --no-install-recommends python-wxgtk2.8
+RUN pip install robotframework-ride
+
+##SSH library installation:
+#SSH library require python-pycryptopp python-paramiko
+RUN apt-get install -y --no-install-recommends python-pycryptopp python-paramiko
+RUN pip install robotframework-sshlibrary
+
+ENTRYPOINT ["/usr/sbin/sshd", "-D"]
