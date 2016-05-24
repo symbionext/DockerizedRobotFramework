@@ -26,7 +26,7 @@ then
 		chmod 700 /home/${SSHUSER}/.ssh
 		echo ${SSHUSERKEY} ${SSHUSER}@public.key >> /home/${SSHUSER}/.ssh/authorized_keys
 		chown ${SSHUSER}:${SSHUSER} /home/${SSHUSER}/.ssh/authorized_keys
-		chmod 700 /home/${SSHUSER}/.ssh
+		chmod 600 /home/${SSHUSER}/.ssh/authorized_keys
 		echo "INFO: Drop SSHUSERKEY env variable from container"
 		unset SSHUSERKEY
 	elif [ "${SSHUSERPW}x" != "x" ];
