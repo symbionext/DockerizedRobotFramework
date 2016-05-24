@@ -7,6 +7,7 @@ Target is get official Robot Framework image to docker hub https://hub.docker.co
 * Easy installation just <b>docker run -P -d robot_framework</b>
 * Container include: a) IDE and execution tools b) Libraryes => No any more version conflicts between development/testing pipeline
 * Easy to scale multible instances by using docker micro servers => Papot library https://github.com/mkorpela/pabot change sequentally test cases execution to parallel execution that brings many huge benefits to picture (e.g. poor man performance testing and speed up of testing pipelines)
+* Get test automation container integrated to Jenkins by using dynamicly way with https://wiki.jenkins-ci.org/display/JENKINS/Docker+Plugin
 
 # Container deloploy time usage:
 Define user to SSH connection: <b>-e SSHUSER=< username ></b>
@@ -23,7 +24,7 @@ Define user to SSH connection: <b>-e SSHUSER=< username ></b>
 * Fellow behind of idea https://www.linkedin.com/in/sakarihoisko
 
 # License:
-<br>Copyright 2016 Symbio
+Copyright 2016 Symbio http://www.symbio.com/
 <br>sakari.hoisko@symbio.com
 <br>
 <br>Licensed under the Apache License, Version 2.0 (the "License");
