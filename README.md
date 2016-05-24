@@ -20,8 +20,9 @@ Define user to SSH connection: <b>-e SSHUSER=< username ></b>
 
 # INFO:
 * Daylight of idea released in http://www.cs.tut.fi/tapahtumat/testaus16/
+* Fellow behind of idea https://www.linkedin.com/in/sakarihoisko
 
-# Licence:
+# License:
 <br>Copyright 2016 Symbio
 <br>sakari.hoisko@symbio.com
 <br>

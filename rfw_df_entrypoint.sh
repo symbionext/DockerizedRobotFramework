@@ -21,7 +21,7 @@ then
 		echo "INFO: Drop SSHUSERPW env variable from container"
 		unset SSHUSERPW
 	else
-		echo "INFO: Set user:${SSHUSER} passwork / public key are not set to container"
+		echo "INFO: User:${SSHUSER} password / public key are not set to container"
 		echo "INFO: YOU CAN NOT LOGIN TO CONTAINER BY SSH"
 	fi
 	echo "INFO: Drop SSHUSER env variable from container"
