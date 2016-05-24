@@ -27,16 +27,16 @@ RUN apt-get install -y --no-install-recommends openssh-server xauth
 EXPOSE 22
 #openssh-server require folder /var/run/sshd
 RUN mkdir -pv /var/run/sshd
+#Set default container SSH user
+ENV 	SSHUSER=sshuser \
+	SSHUSERPW=sshuserpw \
+	SSHUSERKEY=""
+#Add script to container some handle SSH user addition and SSH server
+COPY rfw_df_entrypoint.sh /
+RUN chmod 755 /rfw_df_entrypoint.sh
 
 # Java installation so cointainer could work as Jenkins slave: https://wiki.jenkins-ci.org/display/JENKINS/Docker+Plugin
 RUN apt-get install -y --no-install-recommends openjdk-7-jre
-
-#SSH server user: 
-RUN useradd -m -d /home/sshuser -s /bin/bash -U sshuser
-RUN echo 'sshuser:sshuserpw' | chpasswd
-# NOTE: <In future development user should be added in runtime as script> 
-#       ...same way than in docker-entrypoint.sh do in https://hub.docker.com/_/postgres/ 
-#       ...also run time added keybased auth should be supported
 
 #Python installation:
 RUN apt-get install -y --no-install-recommends python2.7
@@ -56,4 +56,4 @@ RUN pip install robotframework-ride
 RUN apt-get install -y --no-install-recommends python-pycryptopp python-paramiko
 RUN pip install robotframework-sshlibrary
 
-ENTRYPOINT ["/usr/sbin/sshd", "-D"]
+ENTRYPOINT ["/rfw_df_entrypoint.sh"]
