@@ -27,33 +27,13 @@ RUN apt-get -q update &&\
     sed -i 's|session    required     pam_loginuid.so|session    optional     pam_loginuid.so|g' /etc/pam.d/sshd &&\
     mkdir -p /var/run/sshd
 
-#RIDE installation require python-wxgtk2.8 some could be installed from wheezy repo
-RUN echo "deb http://ftp.seclan.com/debian/ wheezy main" >> /etc/apt/sources.list && \
-    echo "deb-src http://ftp.seclan.com/debian/ wheezy main" >> /etc/apt/sources.list
-
-#APT repos update
-RUN apt-get update
-
-#SSH server installation and X11 forwarding possible:
-RUN apt-get install -y --no-install-recommends openssh-server xauth
-#openssh-server require folder /var/run/sshd
-RUN mkdir -pv /var/run/sshd
-
-# Java installation so cointainer could work as Jenkins slave: https://wiki.jenkins-ci.org/display/JENKINS/Docker+Plugin
-RUN apt-get install -y --no-install-recommends openjdk-7-jre
-
-#Python installation:
-RUN apt-get install -y --no-install-recommends python2.7
-#Python pip installation:
-RUN apt-get install -y --no-install-recommends python-pip
-
-##Ride installation:
-#Require python-wxgtk2.8
-RUN apt-get install -y --no-install-recommends python-wxgtk2.8
-
-##SSH library installation:
-#SSH library require python-pycryptopp python-paramiko
-RUN apt-get install -y --no-install-recommends python-pycryptopp python-paramiko
+# Install deps
+# RIDE installation requires python-wxgtk2.8 which can be installed from wheezy repo
+RUN echo "deb http://ftp.seclan.com/debian/ wheezy main" >> /etc/apt/sources.list &&\
+    echo "deb-src http://ftp.seclan.com/debian/ wheezy main" >> /etc/apt/sources.list &&\
+    apt-get -q update &&\
+    DEBIAN_FRONTEND="noninteractive" apt-get -q install -y -o Dpkg::Options::="--force-confnew"  --no-install-recommends openjdk-7-jre python2.7 python-pip python-wxgtk2.8 python-pycryptopp python-paramiko &&\
+    apt-get -q clean -y && rm -rf /var/lib/apt/lists/* && rm -f /var/cache/apt/*.bin
 
 # Robot framework and RIDE installation:
 RUN pip install robotframework robotframework-ride robotframework-sshlibrary
