@@ -24,7 +24,6 @@ RUN apt-get update
 
 #SSH server installation and X11 forwarding possible:
 RUN apt-get install -y --no-install-recommends openssh-server xauth
-EXPOSE 22
 #openssh-server require folder /var/run/sshd
 RUN mkdir -pv /var/run/sshd
 #Set default container SSH user
@@ -53,5 +52,8 @@ RUN apt-get install -y --no-install-recommends python-pycryptopp python-paramiko
 
 # Robot framework and RIDE installation:
 RUN pip install robotframework robotframework-ride robotframework-sshlibrary
+
+# Expose SSH
+EXPOSE 22
 
 ENTRYPOINT ["/rfw_df_entrypoint.sh"]
