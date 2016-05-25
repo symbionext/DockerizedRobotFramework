@@ -24,7 +24,8 @@ Define user to SSH connection: <b>-e SSHUSER=< username ></b>
 * Fellow behind of idea https://www.linkedin.com/in/sakarihoisko
 
 # License:
-Copyright 2016 Symbio http://www.symbio.com/
+Copyright 2016 miyo@eficode.com
+<br>Copyright 2016 Symbio http://www.symbio.com/
 <br>sakari.hoisko@symbio.com
 <br>
 <br>Licensed under the Apache License, Version 2.0 (the "License");
