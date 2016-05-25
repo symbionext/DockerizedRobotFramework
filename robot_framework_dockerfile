@@ -39,9 +39,9 @@ RUN echo "deb http://ftp.seclan.com/debian/ wheezy main" >> /etc/apt/sources.lis
 RUN pip install robotframework robotframework-ride robotframework-sshlibrary
 
 #Set default container SSH user
-ENV 	SSHUSER=sshuser \
-	SSHUSERPW=sshuserpw \
-	SSHUSERKEY=""
+ENV SSHUSER=sshuser \
+    SSHUSERPW=sshuserpw \
+    SSHUSERKEY=""
 
 #Add script to container some handle SSH user addition and SSH server
 COPY rfw_df_entrypoint.sh /
