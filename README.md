@@ -35,12 +35,11 @@ Use e.g. volume mount to get test cases from desktop git checkout to inside of T
 
 # Enhancements to existing implementation:
 Split existing content to tree different images:
-* Base container that include pure Robot Framework, installed from source (without pip/etc).
+* Base container that include pure Robot Framework, installed from by using pip.
 * Customer specifig library container that based to Robot_framework_base container and customer required libraries are installed by using pip => This container is under execution in pipeline. It is light waith container to customer purposes.
 * Test case development container. Based to Robot_framework_library container and RIDE is installed by using pip => This made possible test case development by using exactly same version of robot/libraryes than is used in pipeline.
 <br>
 <br>Benefit: minimize content of containers. Other benefits are same than before.
-
 
 # INFO:
 * Daylight of idea released in http://www.cs.tut.fi/tapahtumat/testaus16/
