@@ -15,6 +15,9 @@
 
 FROM debian
 
+# In case you need proxy
+#RUN echo 'Acquire::http::Proxy "http://127.0.0.1:8080";' >> /etc/apt/apt.conf
+
 #RIDE installation require python-wxgtk2.8 some could be installed from wheezy repo
 RUN echo "deb http://ftp.seclan.com/debian/ wheezy main" >> /etc/apt/sources.list && \
     echo "deb-src http://ftp.seclan.com/debian/ wheezy main" >> /etc/apt/sources.list
