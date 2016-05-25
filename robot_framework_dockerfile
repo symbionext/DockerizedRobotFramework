@@ -43,17 +43,15 @@ RUN apt-get install -y --no-install-recommends python2.7
 #Python pip installation:
 RUN apt-get install -y --no-install-recommends python-pip
 
-##Robot framework installation:
-RUN pip install robotframework
-
 ##Ride installation:
 #Require python-wxgtk2.8
 RUN apt-get install -y --no-install-recommends python-wxgtk2.8
-RUN pip install robotframework-ride
 
 ##SSH library installation:
 #SSH library require python-pycryptopp python-paramiko
 RUN apt-get install -y --no-install-recommends python-pycryptopp python-paramiko
-RUN pip install robotframework-sshlibrary
+
+# Robot framework and RIDE installation:
+RUN pip install robotframework robotframework-ride robotframework-sshlibrary
 
 ENTRYPOINT ["/rfw_df_entrypoint.sh"]
