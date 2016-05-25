@@ -18,6 +18,15 @@ FROM debian
 # In case you need proxy
 #RUN echo 'Acquire::http::Proxy "http://127.0.0.1:8080";' >> /etc/apt/apt.conf
 
+# Upgrade packages and install SSH server
+RUN apt-get -q update &&\
+    DEBIAN_FRONTEND="noninteractive" apt-get -q upgrade -y -o Dpkg::Options::="--force-confnew" --no-install-recommends &&\
+    DEBIAN_FRONTEND="noninteractive" apt-get -q install -y -o Dpkg::Options::="--force-confnew"  --no-install-recommends openssh-server &&\
+    apt-get -q autoremove &&\
+    apt-get -q clean -y && rm -rf /var/lib/apt/lists/* && rm -f /var/cache/apt/*.bin &&\
+    sed -i 's|session    required     pam_loginuid.so|session    optional     pam_loginuid.so|g' /etc/pam.d/sshd &&\
+    mkdir -p /var/run/sshd
+
 #RIDE installation require python-wxgtk2.8 some could be installed from wheezy repo
 RUN echo "deb http://ftp.seclan.com/debian/ wheezy main" >> /etc/apt/sources.list && \
     echo "deb-src http://ftp.seclan.com/debian/ wheezy main" >> /etc/apt/sources.list
