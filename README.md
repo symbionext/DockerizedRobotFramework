@@ -1,7 +1,7 @@
 # Dockerize a RobotFramework
 
-Main focus of this project is to get Robot Framework http://robotframework.org/ , needed libraryes https://github.com/robotframework and RIDE https://github.com/robotframework/RIDE to be dockerized.<br>
-Long time focus is get official Robot Framework base image to docker hub https://hub.docker.com/explore/ and based library & development images to Robot Framework base image (more info in "Enhancements to existing implementation"). 
+Main focus of this project is to get Robot Framework http://robotframework.org/ , needed libraryes https://github.com/robotframework , Jenkins-slave tools https://wiki.jenkins-ci.org/display/JENKINS/Docker+Plugin and RIDE https://github.com/robotframework/RIDE to be dockerized.<br>
+Long time focus is get official Robot Framework base image to docker hub https://hub.docker.com/explore/ and based tools/libraryes & development images to Robot Framework base image (more info in "Enhancements to existing implementation"). 
 Contributing of this project should follow guidlines that are defined in here https://github.com/docker-library/official-images
 
 # Benefits of Robot Framework container 
@@ -36,7 +36,7 @@ Use e.g. volume mount to get test cases from desktop git checkout to inside of T
 
 # Enhancements to existing implementation:
 Split existing content to tree different images:
-* Base container that include pure Robot Framework, installed by using pip.
+* Base container that include Robot Framework, installed by using pip and tools to Jenkins-slave.
 * Customer specifig library container that based to Robot_framework_base container and customer required libraries are installed by using pip => This container is under execution in pipeline. It is light waith container to customer purposes.
 * Test case development container. Based to Robot_framework_library container and RIDE is installed by using pip => This made possible test case development by using exactly same version of robot/libraryes than is used in pipeline.
 <br>
