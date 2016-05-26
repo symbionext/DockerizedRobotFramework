@@ -1,7 +1,8 @@
 # Dockerize a RobotFramework
 
-Main focus of this project is to get Robot Framework http://robotframework.org/ source code https://github.com/robotframework to be dockerized.<br>
-Target is get official Robot Framework image to docker hub https://hub.docker.com/explore/ . Contributing of this project should follow guidlines that are defined in here https://github.com/docker-library/official-images
+Main focus of this project is to get Robot Framework http://robotframework.org/ , needed libraryes https://github.com/robotframework and RIDE https://github.com/robotframework/RIDE to be dockerized.<br>
+Long time focus is get official Robot Framework base image to docker hub https://hub.docker.com/explore/ and based library & development images to Robot Framework base image (more info in "Enhancements to existing implementation"). 
+Contributing of this project should follow guidlines that are defined in here https://github.com/docker-library/official-images
 
 # Benefits of Robot Framework container 
 * Easy installation just <b>docker run -P -d robot_framework</b>
@@ -60,4 +61,3 @@ Copyright 2016 Symbio http://www.symbio.com/
 <br>WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 <br>See the License for the specific language governing permissions and
 <br>limitations under the License.
-
