@@ -6,7 +6,7 @@ Target is get official Robot Framework image to docker hub https://hub.docker.co
 # Benefits of Robot Framework container 
 * Easy installation just <b>docker run -P -d robot_framework</b>
 * Container include: a) IDE and execution tools b) Libraryes => No any more version conflicts between development/testing pipeline
-* Easy to scale multipl KHe instances by using docker micro servers => Papot library https://github.com/mkorpela/pabot change sequentally test cases execution to parallel execution that brings many huge benefits to picture (e.g. poor man performance testing and speed up of testing pipelines)
+* Easy to scale multiple instances by using docker micro servers => Papot library https://github.com/mkorpela/pabot change sequentally test cases execution to parallel execution that brings many huge benefits to picture (e.g. poor man performance testing and speed up of testing pipelines)
 * Get test automation container integrated to Jenkins by using dynamicly way with https://wiki.jenkins-ci.org/display/JENKINS/Docker+Plugin
 
 # Container deploy time usage:
