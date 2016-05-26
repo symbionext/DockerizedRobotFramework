@@ -35,12 +35,14 @@ Use e.g. volume mount to get test cases from desktop git checkout to inside of T
 <br>      < TA_container_image >
 
 # Enhancements to existing implementation:
-Split existing content to tree different images:
-* Base container that include Robot Framework, installed by using pip and tools to Jenkins-slave.
-* Customer specifig library container that based to Robot_framework_base container and customer required libraries are installed by using pip => This container is under execution in pipeline. It is light waith container to customer purposes.
-* Test case development container. Based to Robot_framework_library container and RIDE is installed by using pip => This made possible test case development by using exactly same version of robot/libraryes than is used in pipeline.
+Split existing content to different images:
+* robot_framework_base container that include Robot Framework, installed by using pip 
+* rf_jenkins_slave container, based to robot_framework_base and include needed tools: https://wiki.jenkins-ci.org/display/JENKINS/Docker+Plugin => This just bring ssh server and jre to container.
+* rf_exectools customer specifig library container that based to rf_jenkins_slave container and customer required libraries are installed by using pip => This container is under execution in pipeline. It is light waith container to customer purposes. In here also papot could be installed by using pip.
+* rf_tests_development test suites/cases development container. Based to rf_exectools container and RIDE is installed by using pip => This made possible test case development by using exactly same version of robot/libraryes than is used in pipeline.
 <br>
-<br>Benefit: minimize content of containers. Other benefits are same than before.
+<br>Endpoint of containers: endpoint to every container could be https://github.com/symbionext/DockerizedRobotFramework/blob/master/rfw_df_entrypoint.sh
+<br>Benefit: Minimize content of containers. Just usage purpose guided stuff included to containers. Other benefits are same than before.
 
 # INFO:
 * Daylight of idea released in http://www.cs.tut.fi/tapahtumat/testaus16/
