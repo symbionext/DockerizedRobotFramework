@@ -50,8 +50,8 @@ Split existing content to different images:
 * Fellow behind of idea https://www.linkedin.com/in/sakarihoisko
 
 # License:
-Copyright 2016 Symbio http://www.symbio.com/
-<br>sakari.hoisko@symbio.com
+<br>Copyright 2016 sakari.hoisko@symbio.com
+<br>Copyright 2016 miyo@eficode.com
 <br>
 <br>Licensed under the Apache License, Version 2.0 (the "License");
 <br>you may not use this file except in compliance with the License.
