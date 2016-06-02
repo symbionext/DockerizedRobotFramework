@@ -46,6 +46,7 @@ Split existing content to different images:
 
 # INFO:
 * Daylight of idea released in http://www.cs.tut.fi/tapahtumat/testaus16/
+* Slides "Scalable Test Automation with Docker http://www.cs.tut.fi/tapahtumat/testaus16/kalvot/TTY-Sakari_Hoisko_TestingDay2016-Scalable_Test_Automation_with_Docker.pdf
 * Demo Video "Scalable Test Automation with Docker" https://youtu.be/2nQ-xng4m4w
 * Fellow behind of idea https://www.linkedin.com/in/sakarihoisko
 
