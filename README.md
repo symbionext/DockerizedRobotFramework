@@ -52,7 +52,9 @@ Split existing content to different images:
 
 # License:
 <br>Copyright 2016 sakari.hoisko@symbio.com
+<br>Copyright 2016 markus.suonto@eficode.com
 <br>Copyright 2016 miyo@eficode.com
+<br>Copyright 2016 sakari.hoisko@eficode.com
 <br>
 <br>Licensed under the Apache License, Version 2.0 (the "License");
 <br>you may not use this file except in compliance with the License.

@@ -1,5 +1,7 @@
 #Copyright 2016 Symbio sakari.hoisko@symbio.com
 #Copyright 2016 miyo@eficode.com
+#Copyright 2016 Eficode sakari.hoisko@eficode.com
+
 #
 #Licensed under the Apache License, Version 2.0 (the "License");
 #you may not use this file except in compliance with the License.
@@ -32,7 +34,7 @@ RUN apt-get -q update &&\
 RUN echo "deb http://ftp.seclan.com/debian/ wheezy main" >> /etc/apt/sources.list && \
     echo "deb-src http://ftp.seclan.com/debian/ wheezy main" >> /etc/apt/sources.list &&\
     apt-get -q update &&\
-    DEBIAN_FRONTEND="noninteractive" apt-get -q install -y -o Dpkg::Options::="--force-confnew" --no-install-recommends openjdk-7-jre python2.7 python-pip python-wxgtk2.8 python-pycryptopp python-paramiko &&\
+    DEBIAN_FRONTEND="noninteractive" apt-get -q install -y -o Dpkg::Options::="--force-confnew" --no-install-recommends openjdk-7-jre python2.7 python-pip python-wxgtk2.8 python-pycryptopp python-paramiko xauth &&\
     apt-get -q clean -y && rm -rf /var/lib/apt/lists/* && rm -f /var/cache/apt/*.bin
 
 # Robot framework and RIDE installation:
