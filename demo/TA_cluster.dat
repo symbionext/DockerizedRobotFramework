@@ -1,0 +1,17 @@
+[Server1]
+HOST=10.0.2.15
+PORT=22221
+USERNAME=pabot1
+PASSWORD=pabot1pw
+
+[Server2]
+HOST=10.0.2.15
+PORT=22222
+USERNAME=pabot2
+PASSWORD=pabot2pw
+
+[Server3]
+HOST=10.0.2.15
+PORT=22223
+USERNAME=pabot3
+PASSWORD=pabot3pw

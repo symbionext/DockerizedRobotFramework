@@ -1,0 +1,6 @@
+*** Settings ***
+Library           pabot.PabotLib
+
+*** Test Cases ***
+TestCase3
+    sleep    30 seconds

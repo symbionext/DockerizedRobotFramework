@@ -38,7 +38,7 @@ RUN echo "deb http://ftp.seclan.com/debian/ wheezy main" >> /etc/apt/sources.lis
     apt-get -q clean -y && rm -rf /var/lib/apt/lists/* && rm -f /var/cache/apt/*.bin
 
 # Robot framework and RIDE installation:
-RUN pip install robotframework robotframework-ride robotframework-sshlibrary
+RUN pip install robotframework robotframework-ride robotframework-sshlibrary robotframework-pabot
 
 #Set default container SSH user
 ENV 	SSHUSER=sshuser \
