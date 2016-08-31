@@ -1,7 +1,7 @@
 #!/bin/bash
 DockerizedRobotFramework_folder="/home/user/docker_stuff/DockerizedRobotFramework"
 RobotFrameworkIMG="robotframework_img"
-PublicSSHKey="$(cat ~/.ssh/id_rsa.pub)"
+test -e ~/.ssh/id_rsa.pub && PublicSSHKey="$(cat ~/.ssh/id_rsa.pub)"
 VOLUME_FROM="${DockerizedRobotFramework_folder}/demo"
 
 case $1 in
@@ -22,16 +22,18 @@ case $1 in
 		cd ${CURRENT_FOLDER};
 	;;
 	sshrunpabot)
+		echo "NOTE: some stdout error in end not exist when you really log in by manually and call pabot by manually in SSH window"
 		ssh -q -X pabotmaster@localhost -p 22220 "pabot --pabotlib --processes 10 --resourcefile /demo/TA_cluster.dat /demo/pabot_eg"
 	;;
 	sshrunpybot)
-		ssh -q -X pabotmaster@localhost -p 22220 "pybot /demo/papot_eg/"
+		ssh -q -X pabotmaster@localhost -p 22220 "pybot /demo/pabot_eg"
 	;;
 	runpabot)
+		echo "NOTE: stdout error in end should not exist"
 		pabot --pabotlib --processes 10 --resourcefile /demo/TA_cluster.dat /demo/pabot_eg
 	;;
 	runpybot)
-		pybot /demo/papot_eg/
+		pybot /demo/pabot_eg
 	;;
 	logtomaster)
 		ssh -X pabotmaster@localhost -p 22220
